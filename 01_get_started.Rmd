@@ -3,10 +3,10 @@ title: "Unemployment over Time"
 author: "John Little"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
+  html_notebook: default
   html_document:
     df_print: paged
-  html_notebook: default
-  pdf_document: default
 subtitle: An DIIG introduction to reproducible computational analysis and report writing
 ---
 
@@ -144,7 +144,7 @@ https://docs.ropensci.org/skimr
 
 ## License
 
-https://JohnLittle.info
-[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
-Creative Commons:  Attribution, Non Commercial
+https://JohnLittle.info  
+[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)  
+Creative Commons:  Attribution, Non Commercial  
 

@@ -44,6 +44,6 @@ The basic outline
 
 ## License
 
-John Little
-[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
+John Little  
+[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)  
 Creative Commons:  Attribution, Non Commercial
