@@ -1,11 +1,13 @@
 ---
 title: "Unemployment over Time"
-subtitle: "An DIIG introduction to reproducilbe computational analysis and report writing"
 author: "John Little"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
+  html_document:
+    df_print: paged
   html_notebook: default
+  pdf_document: default
+subtitle: An DIIG introduction to reproducible computational analysis and report writing
 ---
 
 R, RStudio, and the Tidyverse are three components of a modern computational environment that leverages important characteristics of Data Science.  This tool suite is extensible but available to researchers working at various level of complexity. This example report demonstrates how computational analysis can be supported by a reproducible workflow.  You will see how RStudio and the Tidyverse are geared towards reproducibility; can render reports in various formats; aids in the important and time consuming task of data wrangling (80% of any data project); brings sophisticated visualization functions; and leverages sophisticated data management techniques.
@@ -120,7 +122,7 @@ https://tidyr.tidyverse.org
 - `pivot_longer()`
 - `pivot_wider()`
 
-## Visuzlization [ggplot2] & EDA
+## Visualization (**ggplot2**) & EDA
 
 https://ggplot2.tidyverse.org
 https://docs.ropensci.org/skimr
@@ -133,7 +135,16 @@ https://docs.ropensci.org/skimr
 - `geom_point()`
 
 
+## Resources
 
+- [This code repository](https://github.com/libjohn/presentation_diig)
+- [Videos and guides](https://rfun.library.duke.edu/portfolio/r_flipped/)
+- [Tidyverse documentation](https://tidyverse.org)
+- [Center for Data & Visualization Sciences](https://library.duke.edu/data)
 
+## License
 
+https://JohnLittle.info
+[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
+Creative Commons:  Attribution, Non Commercial
 
