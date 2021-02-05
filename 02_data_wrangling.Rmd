@@ -1,0 +1,89 @@
+---
+title: "Some ways to calculate and present summary statistics"
+author: "John Little"
+date: "`r Sys.Date()`"
+output: html_notebook
+---
+
+## Load library packages
+
+In addition to using the `gapminder` dataset, I will also use the base-R dataset, `faithful` (`r ?faithful`) and the dplyr dataset `starwars` (`r ?starwars`).  Below I have commented out the `install.packages()` function.  If you do not have these functions, you may need to run those commands.
+
+```{r}
+library(tidyverse)
+# install.packages("gapminder")
+library(gapminder)
+# install.packages("skimr")
+library(skimr)
+```
+
+## Summary Statiscs
+
+The base-R function, `summary()` is a very convenient way of showing min, max, mean, median, and interquartile range
+
+```{r}
+summary(faithful)
+```
+
+The `skimr::skim()` function is helpful and includes "spark graphs" at the end of each numeric variable.  The spark graphs show distribution -- and can be turned off with `skim_without_charts()`
+
+```{r}
+skim(faithful) 
+```
+
+```{r}
+faithful %>% 
+  skim_without_charts()
+```
+## Visualization
+
+Another great way to display summary statistics on numeric variables is to display boxplots that display common statistics:  the median, interquartile range, etc.
+
+
+```{r}
+starwars %>% 
+  filter(mass < 500) %>% 
+  filter(species == "Human" |
+           species == "Droid" |
+           species == "Wookiee") %>% 
+  ggplot(aes(species, mass)) +
+  geom_boxplot() +
+  labs(title = "Mass of select Star Wars species",
+       subtitle = "Boxplot visualization",
+       y = "Mass in Kg")
+```
+
+## Tidyverse approach
+
+The original developer of [qwraps library](https://github.com/dewittpe/qwraps) seems to have abandon his approach in favor of tidyverse methods.  I tend to agree.
+
+```{r}
+faithful %>% 
+  # group_by(waiting) %>%
+  summarise(mean   = mean(eruptions, na.rm = TRUE), 
+            median = median(eruptions, na.rm = TRUE), 
+            min    = min(eruptions, na.rm = TRUE),
+            max    = max(eruptions, na.rm = TRUE),
+            sd     = sd(eruptions, na.rm = TRUE))
+```
+
+```{r}
+# gapminder %>% 
+#   group_by(continent, year) %>% 
+#   skim() 
+```
+
+## Print
+
+Skimr can have some funny output options but there is plenty of documentation on the options.  Many of those idiosyncrasies are also easily handled with Tidyverse approaches to printing dataframes (e.g. the `kintr::kable()` function, `kableExtra`, and/or  [gt](https://gt.rstudio.com/).)
+
+```{r}
+foo <- faithful %>%
+  skim()
+
+
+
+# foo %>% 
+#   knit_print()
+```
+
